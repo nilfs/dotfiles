@@ -1,6 +1,3 @@
-# include ./bin/asdf/Makefile
-# include ./bin/aptiude/Makefile
-
 # global variables
 DOTFILES_EXCLUDES   := .DS_Store .git .gitmodule
 DOTFILES_TARGET     := $(wildcard .??*) bin

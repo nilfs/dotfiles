@@ -5,7 +5,7 @@ export DOTFILES_DIR := $(PWD)
 export DOTFILES_HOME := $(HOME)
 DOTFILES_FILES    := $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 
-TARGETS = asdf bashrc
+TARGETS = asdf asdf-plugins bashrc
 CACHES = $(TARGETS:%=cache/%)
 
 init:
@@ -17,5 +17,5 @@ install: $(CACHES)
 cache/% : etc/install/install_%.sh
 	@sh $<
 
-cache/asdf : cache/curl cache/git
+cache/asdf : cache/curl cache/git cache/bashrc
 	@sh etc/install/install_asdf.sh

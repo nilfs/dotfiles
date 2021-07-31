@@ -29,5 +29,5 @@ cache/asdf : cache/curl cache/git cache/bashrc
 cache/ruby : cache/libssl-dev cache/zlib1g-dev
 	@echo ". etc/install/install_ruby.sh" >> $(SCRIPT_FILE)
 
-cache/python : cache/zlib1g-dev
+cache/python : cache/zlib1g-dev cache/libsqlite3-dev cache/libreadline-dev cache/libbz2-dev
 	@echo ". etc/install/install_python.sh" >> $(SCRIPT_FILE)

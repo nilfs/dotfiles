@@ -7,15 +7,21 @@ DOTFILES_FILES    := $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 
 TARGETS = asdf asdf-plugins bashrc
 CACHES = $(TARGETS:%=cache/%)
+SCRIPT_FILE = "temp-install.sh"
 
-init:
-	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
+# 依存関係を考慮して適切な順番になるようにインストールスクリプトを構築する
+.PHONY: build-install-start
+build-install-start:
+	@echo "DOTFILES_DIR=$(PWD)" >> $(SCRIPT_FILE)
+	@echo "DOTFILES_HOME=$(HOME)" >> $(SCRIPT_FILE)
 
-install: $(CACHES)
-	@echo "install end"
+.PHONY: build-install
+build-install: build-install-start $(CACHES)
+	@echo "build end"
 
+# インストールスクリプトの依存関係を定義
 cache/% : etc/install/install_%.sh
-	@sh $<
+	@echo ". $<" >> $(SCRIPT_FILE)
 
 cache/asdf : cache/curl cache/git cache/bashrc
-	@sh etc/install/install_asdf.sh
+	@echo ". etc/install/install_asdf.sh" >> $(SCRIPT_FILE)

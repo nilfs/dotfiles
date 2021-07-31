@@ -5,7 +5,7 @@ export DOTFILES_DIR := $(PWD)
 export DOTFILES_HOME := $(HOME)
 DOTFILES_FILES    := $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 
-TARGETS = asdf asdf-plugins ruby bashrc
+TARGETS = asdf asdf-plugins ruby python bashrc
 CACHES = $(TARGETS:%=cache/%)
 SCRIPT_FILE = "temp-install.sh"
 
@@ -28,3 +28,6 @@ cache/asdf : cache/curl cache/git cache/bashrc
 
 cache/ruby : cache/libssl-dev cache/zlib1g-dev
 	@echo ". etc/install/install_ruby.sh" >> $(SCRIPT_FILE)
+
+cache/python : cache/zlib1g-dev
+	@echo ". etc/install/install_python.sh" >> $(SCRIPT_FILE)

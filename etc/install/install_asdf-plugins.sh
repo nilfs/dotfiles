@@ -8,4 +8,3 @@ asdf plugin add nodejs
 asdf install nodejs 14.17.3
 
 asdf plugin add python
-asdf install python 3.9.6

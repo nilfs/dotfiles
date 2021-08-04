@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ -f "$@" ]; then
-  cmd.exe /c start "$@"
-else
-  cd "$@" && cmd.exe /c start . && cd "$OLDPWD"
-fi

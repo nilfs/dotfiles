@@ -5,7 +5,7 @@ export DOTFILES_DIR := $(PWD)
 export DOTFILES_HOME := $(HOME)
 DOTFILES_FILES    := $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 
-TARGETS = asdf asdf-plugins ruby python jq bashrc
+TARGETS = asdf asdf-plugins ruby python jq bat bashrc
 CACHES = $(TARGETS:%=cache/%)
 SCRIPT_FILE = "temp-install.sh"
 

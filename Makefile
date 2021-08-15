@@ -5,7 +5,7 @@ export DOTFILES_DIR := $(PWD)
 export DOTFILES_HOME := $(HOME)
 DOTFILES_FILES    := $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 
-TARGETS = asdf asdf-plugins ruby python pipx jq bat bashrc aws-tools
+TARGETS = asdf asdf-plugins ruby python pipx jq bat bashrc aws-tools pwgen
 CACHES = $(TARGETS:%=cache/%)
 SCRIPT_FILE = "temp-install.sh"
 

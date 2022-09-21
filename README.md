@@ -7,8 +7,10 @@ cd dotfiles
 ```
 
 ## Folder
+```
 .
 ├── Makefile
 ├── bin                便利コマンド等を入れる場所
 ├── etc
 │   └── install        各種ツールをインストールするスクリプト
+```
